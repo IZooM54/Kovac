@@ -1,0 +1,42 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class Kovac implements ActionListener {
+	JButton newButton;
+	JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+	// метка jLabel jLab;
+	Kovac() {
+		// Создать новый контейнер JFrarne 
+		JFrame jfrm = new JFrame("Подсчет Ковака");
+		
+		// Задать объект FlowLayout для менеджера компоновки 
+		jfrm.setLayout(new FlowLayout()); 
+		// Задать исходные размеры фрейма 
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Dimension dimension = toolkit.getScreenSize();
+		jfrm.setBounds(dimension.width / 2 - 500, dimension.height / 2 - 250, 1000, 500);
+		
+		// что делать при закрытии
+		jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// видимость
+		jfrm.setVisible(true);
+		contentPane.setLayout(new BorderLayout());
+		newButton = new JButton("Посчитать");
+		newButton.addActionListener(this);
+		JPanel botPanel = new JPanel();
+		botPanel.add(newButton);
+		jfrm.add(botPanel, "B");
+	}
+	
+	public void actionPerformed(ActionEvent ae) {
+	
+	}
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				new Kovac();
+			}
+		});
+	}
+}
